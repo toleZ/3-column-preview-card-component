@@ -1,0 +1,96 @@
+$sedans: hsl(31, 77%, 52%)
+$suvs: hsl(184, 100%, 22%)
+$luxury: hsl(179, 100%, 13%)
+$big-shoulders: 'Big Shoulders Display', cursive
+$lexend-deca: 'Lexend Deca', sans-serif
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    min-height: 100vh
+    display: flex
+    justify-content: center
+    align-items: center
+    background-color: hsl(0, 0%, 95%)
+
+.container
+    width: 90%
+    display: grid
+    grid-template-rows: repeat(3, (100%/3))
+    margin: 1rem 0
+
+.column
+    padding: 1rem
+    &:nth-child(1)
+        background-color: $sedans
+        border-radius: 5px 5px 0 0
+        .column__btn
+            color: $sedans
+            &:hover
+                background-color: $sedans
+                border: 2px solid hsl(0, 0%, 95%)
+                color: hsl(0, 0%, 95%)
+                padding: 14px
+    &:nth-child(2)
+        background-color: $suvs
+        .column__btn
+            color: $suvs
+            &:hover
+                background-color: $suvs
+                border: 2px solid hsl(0, 0%, 95%)
+                color: hsl(0, 0%, 95%)
+                padding: 14px
+    &:nth-child(3)
+        background-color: $luxury
+        border-radius: 0 0 5px 5px
+        .column__btn
+            color: $luxury
+            &:hover
+                background-color: $luxury
+                border: 2px solid hsl(0, 0%, 95%)
+                color: hsl(0, 0%, 95%)
+                padding: 14px
+    &__img
+        padding: 1rem
+    &__title
+        padding: 1rem
+        font-size: 30px
+        font-family: $big-shoulders
+        font-weight: 700
+        text-transform: uppercase
+        color: hsl(0, 0%, 95%)
+    &__description
+        padding: 1rem
+        font-size: 15px
+        font-family: $lexend-deca
+        font-weight: 400
+        color: hsla(0, 0%, 100%, 0.75)
+    &__btn
+        border: none
+        border-radius: 2rem
+        margin: 1rem
+        padding: 1rem
+        background-color: hsl(0, 0%, 95%)
+        font-size: 15px
+        font-family: $lexend-deca
+        font-weight: 400
+        width: 50%
+
+@media screen and (min-width: 1440px)
+    .container
+        width: 60%
+        grid-template-columns: repeat(3, (100%/3))
+        grid-template-rows: 100%
+        overflow: hidden
+        border-radius: 5px
+    
+    .column
+        &:nth-child(1),
+        &:nth-child(2),
+        &:nth-child(3)
+            border-radius: 0
+        &__description
+            padding-bottom: 4rem
